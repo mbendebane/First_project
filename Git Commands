@@ -1,0 +1,115 @@
+# Pour clone un projet : 
+      git clone Lien 
+      git clone https://github.com/libgit2/libgit2
+
+##  Pour commencer à suivre un nouveau fichier, il faut utiliser la commande :
+      git add <fichier>
+
+## git status
+
+##  Pour voir les modifications qui font partie de la prochaine validation,  vous pouvez utiliser: 
+     git diff --cached
+
+##  Pour valider est ‘git commit’ avec les options :
+    -v : ajoute le diff dans le commentaire
+    -m ‘my comment’ : Pour ajouter directement un commentaire sans passer par 
+     git commit -m 'Add file1'
+
+##  Pour ajouter tous les fichiers un par un.
+     git commit –a 
+
+## Pour l'’effacement du fichier est indexé.
+     git rm name_file
+ou bien : 
+     mv <source> <destination>’ 
+     git rm <source>
+     git add <destination>’ 
+
+## Pour visualiser l'historique: 
+     git log 
+     git log --stat => affiche les nom des lignes qui sont changées
+     git log --pretty=oneline  => Affichage d’un commit par ligne
+     git log --pretty=short  => Affiche plus de details que oneline
+     git log --pretty=oneline  =>  plus de details que short
+     git log --pretty=fuller  => plus de detail que full
+     git log --pretty=format:’…’ => Permet de créer un format spécifique comme:
+     git log --pretty=format: ' %H - %an , %ar :%s' => %H id de commit, %an: nom de l'auteur, %ar date relative a l'auteur et %s sujet
+
+
+## Pour modifier un commit : 
+      git commit --amend
+
+
+## Pour désindexer un fichier déjà indexé
+      git reset HEAD <file>
+
+## Pour Réinitialiser un fichier modifié
+      git checkout -- <fichier>
+
+##  Pour Afficher les dépôts distants
+      git remote --v => Le v pour afficher  l’URL 
+
+## Ajouter un depôt 
+      git remote add johnpatrick https://github.com/johnpatrick/monprojet
+
+## Pour inspecter un dépôt distant
+      git remote show [dépôt distant]
+##  Pour renommer une référence :
+     git remote rename johnpatrick janebob
+     
+## Pour supprimer une référence :
+    git remote rm janebob
+
+## Pour récupérer les données d’un dépôt distant :
+      git fetch [nom du repos distant]
+
+## Pour pousser son travail sur un dépôt distant
+      git push [dépôt distant] [nom-de-la-branche]
+      git push origin master
+
+Les Tag
+##  Pour lister les étiquettes :
+      git tag
+
+## Pour faire une recherche :
+      git tab –l ’v1.0.*’
+
+##  Créer des étiquettes annotées est simple avec Git :
+      git tag –a v1.1.0 –m ’Ma version 1.1.0’
+
+## Pour afficher en détails votre nouveau tag :
+      git show v1.1.0
+
+##  Il est possible d’étiqueter des anciens commit :
+      git tag –a version %h
+      git tag –a v1.0.0 9b92f3b
+
+## pousser les étiquettes après les avoir créées localement.
+      git push origin v1.1.0
+
+
+## Pour pouvoir pousser toutes les étiquettes que nous avons créé localement : 
+      git push origin --tags
+
+##  Pour se placer à la position d’un commit étiqueté : 
+      git checkout –b v1.1.0
+
+
+
+Branche: 
+## Pour créer une nouvelle branche :
+      git branch nom_branche
+
+##  Pour changer de branche :
+      git checkout nom_branche
+
+## Pour vérifier sur quelle brance se point :
+      git log --oneline --decorate
+ou bien 
+      git status
+      
+##  Pour creer a branche en local a partir du git distant
+      git checkout -b <branche> origin/<branche>
+      git checkout -b V.1.0.0 origin/V.1.0.0
+
+
